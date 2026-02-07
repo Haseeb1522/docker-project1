@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-haseeb
+    runs-on: ubuntu-latest
 
     steps:
       - name: 1️⃣ Get Code
