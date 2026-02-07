@@ -16,10 +16,10 @@ jobs:
         run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: 3️⃣ Build Docker Image
-        run: docker build -t haseeb1522/docker-project:latest .
+        run: docker build -t haseeb1522/docker-project1:latest .
 
       - name: 4️⃣ Push Image to DockerHub
-        run: docker push haseeb1522/docker-project:latest
+        run: docker push haseeb1522/docker-project1:latest
 
       - name: 5️⃣ Deploy on EC2 Server
         uses: appleboy/ssh-action@v1.0.3
@@ -28,7 +28,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
           script: |
-            sudo docker pull haseeb1522/docker-project:latest
+            sudo docker pull haseeb1522/docker-project1:latest
             sudo docker stop loginapp || true
             sudo docker rm loginapp || true
-            sudo docker run -d --name loginapp -p 88:80 haseeb1522/docker-project:latest
+            sudo docker run -d --name loginapp -p 88:80 haseeb1522/docker-project1:latest
