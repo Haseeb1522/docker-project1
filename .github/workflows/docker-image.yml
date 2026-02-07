@@ -28,7 +28,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
           script: |
-            docker pull haseeb1522/docker-project:latest
-            docker stop loginapp || true
-            docker rm loginapp || true
-            docker run -d --name loginapp -p 88:80 haseeb1522/docker-project:latest
+            sudo docker pull haseeb1522/docker-project:latest
+            sudo docker stop loginapp || true
+            sudo docker rm loginapp || true
+            sudo docker run -d --name loginapp -p 88:80 haseeb1522/docker-project:latest
